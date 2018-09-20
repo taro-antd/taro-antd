@@ -1,0 +1,88 @@
+@import '../../style/mixins.less';
+@import '../../style/themes/default.less';
+
+@listPrefixCls: td-list;
+
+.@{listPrefixCls} {
+  &-header {
+    padding: @v-spacing-lg @h-spacing-lg @v-spacing-md @h-spacing-lg;
+    font-size: @font-size-base;
+    color: @color-text-caption;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  &-body {
+    position: relative;
+    background-color: @fill-base;
+    .hairline('top');
+    &::after {
+      content: " ";
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: @border-color-base;
+  
+      /* prettier-ignore */
+      height: 1PX;
+    }
+  }
+}
+
+.@{listPrefixCls}-item {
+  position: relative;
+  display: flex;
+  padding-left: @h-spacing-lg;
+  min-height: @list-item-height;
+  background-color: @fill-base;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 200ms;
+  align-items: center;
+  &::after {
+    content: " ";
+    position: absolute;
+    width: calc(100% - @h-spacing-lg);
+
+    /* prettier-ignore */
+    height: 1PX;
+    background-color: @border-color-base;
+    bottom: 0;
+    left: @h-spacing-lg;
+  }
+}
+
+.@{listPrefixCls}-line {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  padding-right: @h-spacing-lg;
+  overflow: hidden;
+  .hairline('bottom');
+  /* list左侧主内容*/
+  .@{listPrefixCls}-content {
+    flex: 1;
+    color: @color-text-base;
+    font-size: @font-size-heading;
+    line-height: @line-height-paragraph;
+    text-align: left;
+    .ellipsis();
+    
+    padding-top: 7 * @hd;
+    padding-bottom: 7 * @hd;
+  }
+
+  /* list右补充内容*/
+  .@{listPrefixCls}-extra {
+    flex-basis: 36%;
+    color: @color-text-caption;
+    font-size: @font-size-caption;
+    line-height: @line-height-paragraph;
+    text-align: right;
+    .ellipsis();
+
+    padding-top: 7 * @hd;
+    padding-bottom: 7 * @hd;
+  }
+}
