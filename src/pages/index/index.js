@@ -35,10 +35,10 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  handleClick (title) {
-    console.log(title)
+  handleClick = e => {
+    const { id } = e.currentTarget.dataset
     Taro.navigateTo({
-      url: `/pages/view/${title}/index`
+      url: `/pages/view/${id}/index`
     })
   }
 
@@ -52,7 +52,9 @@ export default class Index extends Component {
             <TdList title={item.title}>
               {
                 item.content.map(citem => (
-                  <TdListItem extra={citem.extra} onClick={this.handleClick(citem.title)}>{citem.title}</TdListItem>
+                  <View data-id={citem.title} onClick={this.handleClick}>
+                    <TdListItem extra={citem.extra}>{citem.title}</TdListItem>
+                  </View>
                 ))
               }
             </TdList>
