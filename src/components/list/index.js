@@ -2,10 +2,10 @@ import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-
+import TdComponent from '../../common/component'
 import './index.less'
 
-export default class TdList extends Component {
+export default class TdList extends TdComponent {
 
   render () {
     const { prefixCls, hasBorder, title } = this.props
@@ -34,5 +34,5 @@ TdList.defaultProps = {
 
 TdList.propTypes = {
   hasBorder: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string,
 }

@@ -8,7 +8,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/view/Flex/index'
+      'pages/views/List/index',
+      'pages/views/Flex/index',
     ],
     window: {
       backgroundTextStyle: 'light',
