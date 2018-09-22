@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View,Image } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import classNames from 'classnames'
 import _isFunction from 'lodash/isFunction'
 import PropTypes from 'prop-types'
@@ -14,14 +14,22 @@ export default class TdListItem extends Component {
     }
   }
   render () {
-    const { prefixCls, arrow, extra, multipleLine,thumb } = this.props
+    const { prefixCls, arrow, extra, align, multipleLine, wrap, disabled, thumb } = this.props
 
     const lineCls = classNames(`${prefixCls}-line`, {
-      [`${prefixCls}-line-multiple`]: multipleLine
+      [`${prefixCls}-line-multiple`]: multipleLine,
+      [`${prefixCls}-line-wrap`]: wrap,
     });
 
+    const wrapCls = classNames(`${prefixCls}-item`, {
+      [`${prefixCls}-item-disabled`]: disabled,
+      [`${prefixCls}-item-top`]: align === 'top',
+      [`${prefixCls}-item-middle`]: align === 'middle',
+      [`${prefixCls}-item-bottom`]: align === 'bottom',
+    })
+
     return (
-      <View class={`${prefixCls}-item`} onClick={this.handleClick}>
+      <View class={wrapCls} onClick={this.handleClick}>
         {thumb ? (
           <View className={`${prefixCls}-thumb`}>
             <Image src={thumb} />
@@ -34,7 +42,7 @@ export default class TdListItem extends Component {
           ) : null}
           {arrow ? (
             <View className={`${prefixCls}-arrow`}>
-              <TdIcon value={`chevron-${arrow}`} color='#c7c7cc' style="display: table-cell;vertical-align: middle;"/>
+              <TdIcon value={`chevron-${arrow}`} color='#c7c7cc' style="display: table-cell;vertical-align: middle;" />
             </View>
           ) : null}
         </View>
@@ -45,14 +53,20 @@ export default class TdListItem extends Component {
 
 TdListItem.defaultProps = {
   prefixCls: 'td-list',
-  multipleLine: false
+  align: 'middle',
+  multipleLine: false,
+  wrap: false,
+  disabled: false
 }
 
 TdListItem.propTypes = {
   title: PropTypes.string,
   extra: PropTypes.string,
+  align: PropTypes.string,
   arrow: PropTypes.string,
+  thumb: PropTypes.string,
+  multipleLine: PropTypes.bool,
+  wrap: PropTypes.bool,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  multipleLine: PropTypes.boolean,
-  thumb: PropTypes.string
 }

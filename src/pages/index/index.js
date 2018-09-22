@@ -34,7 +34,7 @@ export default class Index extends Component {
   handleClick = e => {
     const { id } = e.currentTarget.dataset
     Taro.navigateTo({
-      url: `/pages/view/${id}/index`
+      url: `/pages/views/${id}/index`
     })
   }
 
@@ -45,11 +45,11 @@ export default class Index extends Component {
         <View className='page-describe'>基于Ant Design Mobile 的Taro组件库 多端支持微信小程序、H5</View>
         <View>
           {list.map((item, index) => (
-            <TdList title={item.title}>
+            <TdList title={item.title} key={index}>
               {
-                item.content.map(citem => (
-                  <View data-id={citem.title} onClick={this.handleClick}>
-                    <TdListItem extra={citem.extra}>{citem.title}</TdListItem>
+                item.content.map((citem, cindex) => (
+                  <View data-id={citem.title} onClick={this.handleClick} key={cindex}>
+                    <TdListItem arrow="right" extra={citem.extra}>{citem.title}</TdListItem>
                   </View>
                 ))
               }

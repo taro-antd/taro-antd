@@ -29,6 +29,32 @@
   }
 }
 
+.@{listPrefixCls}-item-top {
+  .@{listPrefixCls}-line {
+    align-items: flex-start;
+  }
+}
+
+.@{listPrefixCls}-item-middle {
+  .@{listPrefixCls}-line {
+    align-items: center;
+  }
+}
+
+.@{listPrefixCls}-item-bottom {
+  .@{listPrefixCls}-line {
+    align-items: flex-end;
+  }
+}
+.@{listPrefixCls}-item-disabled {
+  .@{listPrefixCls}-line {
+    .@{listPrefixCls}-content,
+    .@{listPrefixCls}-extra {
+      color: @color-text-disabled;
+    }
+  }
+}
+
 .@{listPrefixCls}-item {
   position: relative;
   display: flex;
@@ -111,6 +137,15 @@
     .@{listPrefixCls}-extra {
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+  &-wrap {
+    .@{listPrefixCls}-content {
+      white-space: normal;
+    }
+
+    .@{listPrefixCls}-extra {
+      white-space: normal;
     }
   }
 }
