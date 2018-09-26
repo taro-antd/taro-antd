@@ -1,0 +1,42 @@
+@import '../../style/mixins.less';
+@import '../../style/themes/default.less';
+
+@flexPrefixCls: td-flexbox;
+
+.@{flexPrefixCls} {
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  &&-align-start {
+    align-items: flex-start;
+  }
+
+  &&-align-end {
+    align-items: flex-end;
+  }
+
+  &&-align-center {
+    align-items: center;
+  }
+
+  &&-align-stretch {
+    align-items: stretch;
+  }
+
+  &&-align-baseline {
+    align-items: baseline;
+  }
+
+}
+
+.@{flexPrefixCls}-item {
+  box-sizing: border-box;
+  flex: 1;
+  margin-left: @h-spacing-md;
+  min-width: 10 * @hd;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Picker } from '@tarojs/components'
-
 import TdList from '../../../components/list/index'
 import TdListItem from '../../../components/list/listItem/index'
 import TdBrief from '../../../components/list/brief/index'

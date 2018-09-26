@@ -7,9 +7,12 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/views/List/index',
-      'pages/index/index',
+      'pages/views/Drawer/index',
+      'pages/views/Grid/index',
+      'pages/views/WingBlank/index',
       'pages/views/Flex/index',
+      'pages/index/index',
+      'pages/views/List/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -28,9 +31,7 @@ class App extends Component {
   componentCatchError () { }
 
   render () {
-    return (
-      <Index />
-    )
+    return (<Index />)
   }
 }
 

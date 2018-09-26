@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.less'
 
-import { TdList } from '../../components/list/index'
+import TdList from '../../components/list/index'
 import TdListItem from '../../components/list/listItem/index'
 
 export default class Index extends Component {
@@ -14,8 +14,14 @@ export default class Index extends Component {
           title: 'Layout',
           content: [
             { title: 'Flex', extra: 'Flex布局' },
+            { title: 'Grid', extra: 'Grid布局' },
             { title: 'WingBlank', extra: '两翼留白' },
-            { title: 'WhiteSpace', extra: '上下留白' }
+          ]
+        },
+        {
+          title: 'Navigation',
+          content: [
+            { title: 'Drawer', extra: '抽屉' }
           ]
         },
         {
